@@ -1,4 +1,3 @@
-// DiagnosisController.java
 package pl.coderslab.DiaKNOWsis.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;

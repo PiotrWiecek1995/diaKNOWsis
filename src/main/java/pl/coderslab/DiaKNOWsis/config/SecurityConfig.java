@@ -66,14 +66,14 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // Niestandardowy firewall zezwalający na niektóre znaki
+
     @Bean
     public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
         StrictHttpFirewall firewall = new StrictHttpFirewall();
-        firewall.setAllowSemicolon(true); // Pozwala na średniki w URL
-        firewall.setAllowUrlEncodedSlash(true); // Pozwala na kodowane znaki '/'
-        firewall.setAllowUrlEncodedPercent(true); // Pozwala na procentowe kodowanie w URL
-        firewall.setAllowedHeaderValues(header -> true); // Zezwala na wszystkie wartości nagłówków
+        firewall.setAllowSemicolon(true);
+        firewall.setAllowUrlEncodedSlash(true);
+        firewall.setAllowUrlEncodedPercent(true);
+        firewall.setAllowedHeaderValues(header -> true);
         return firewall;
     }
 }
