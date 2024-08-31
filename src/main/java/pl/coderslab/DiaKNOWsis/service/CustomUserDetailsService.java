@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        System.out.println("Email passed to loadUserByUsername: " + email); // Logowanie emaila
+        System.out.println("Email passed to loadUserByUsername: " + email);
 
         if (email == null || email.trim().isEmpty()) {
             throw new UsernameNotFoundException("Email cannot be empty or null");
@@ -31,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getEmail())
                 .password(user.getHaslo())
-                .roles("USER")  // Tutaj możesz dodać role użytkownika, jeśli jest to wymagane
+                .roles("USER")
                 .build();
     }
 }

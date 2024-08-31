@@ -19,12 +19,12 @@ public class WynikiService {
     @Autowired
     private PacjentRepository pacjentRepository;
 
-    // Zapisz wyniki
+
     public void zapiszWyniki(Wyniki wyniki) {
         wynikiRepository.save(wyniki);
     }
 
-    // Znajdź wyniki po pacjentId
+
     public List<Wyniki> znajdzWynikiPoPacjencieId(Long pacjentId) {
         Optional<Pacjent> pacjentOpt = pacjentRepository.findById(pacjentId);
         if (pacjentOpt.isPresent()) {
@@ -35,7 +35,7 @@ public class WynikiService {
         }
     }
 
-    // Znajdź wynik po jego ID
+
     public Wyniki znajdzWynikPoId(Long id) {
         Optional<Wyniki> wynikiOpt = wynikiRepository.findById(id);
         if (wynikiOpt.isPresent()) {

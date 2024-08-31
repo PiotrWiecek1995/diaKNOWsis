@@ -22,7 +22,7 @@ public class ChorobaService {
         return chorobaRepository.findAll();
     }
 
-    // Zaktualizowana logika do diagnozowania choroby na podstawie wyników
+
     @Transactional(readOnly = true)
     public List<Choroba> diagnozuj(Wyniki wyniki) {
         List<Choroba> choroby = znajdzWszystkieChoroby();
@@ -42,7 +42,7 @@ public class ChorobaService {
             }
         }
 
-        return pasujaceChoroby;  // Zwróć wszystkie pasujące choroby
+        return pasujaceChoroby;
     }
 
     private Double getWartoscWyniku(Wyniki wyniki, String nazwaParametru) {
