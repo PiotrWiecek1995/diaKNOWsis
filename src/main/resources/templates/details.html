@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dane Użytkownika - DiaKNOWsis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .app-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="app-title">DiaKNOWsis</div>
+    <div class="header-title">Dane Użytkownika</div>
+    <div class="mb-3">
+        <p><strong>Imię:</strong> <span th:text="${user.imie}"></span></p>
+        <p><strong>Nazwisko:</strong> <span th:text="${user.nazwisko}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+        <p><strong>Specjalizacja:</strong> <span th:text="${user.specjalizacja}"></span></p>
+    </div>
+    <div class="back-link">
+        <a href="/home" class="btn btn-primary">Powrót do strony głównej</a>
+    </div>
+</div>
+
+
+
+</body>
+</html>

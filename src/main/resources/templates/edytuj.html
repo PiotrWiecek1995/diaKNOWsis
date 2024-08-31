@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj Pacjenta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Edytuj Pacjenta</h1>
+    <form th:action="@{/pacjenci/edytuj}" th:object="${pacjent}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="imie">Imię:</label>
+            <input type="text" class="form-control" id="imie" th:field="*{imie}" required>
+        </div>
+        <div class="form-group">
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" class="form-control" id="nazwisko" th:field="*{nazwisko}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pesel">PESEL:</label>
+            <input type="text" class="form-control" id="pesel" th:field="*{pesel}" required>
+        </div>
+        <div class="form-group">
+            <label for="plec">Płeć:</label>
+            <select class="form-control" id="plec" th:field="*{plec}">
+                <option value="M">Mężczyzna</option>
+                <option value="K">Kobieta</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="adres">Adres Zamieszkania:</label>
+            <input type="text" class="form-control" id="adres" th:field="*{adres}" required>
+        </div>
+        <div class="form-group">
+            <label for="telefon">Telefon Kontaktowy:</label>
+            <input type="text" class="form-control" id="telefon" th:field="*{telefon}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Zapisz Zmiany</button>
+        <a href="/pacjenci/lista" class="btn btn-secondary">Powrót</a>
+    </form>
+</div>
+</body>
+</html>

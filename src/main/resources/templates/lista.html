@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Pacjentów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Lista Pacjentów</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>PESEL</th>
+            <th>Płeć</th>
+            <th>Adres</th>
+            <th>Telefon</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pacjent : ${pacjenci}">
+            <td th:text="${pacjent.imie}"></td>
+            <td th:text="${pacjent.nazwisko}"></td>
+            <td th:text="${pacjent.pesel}"></td>
+            <td th:text="${pacjent.plec}"></td>
+            <td th:text="${pacjent.adres}"></td>
+            <td th:text="${pacjent.telefon}"></td>
+            <td>
+                <a th:href="@{/pacjenci/edytuj/{id}(id=${pacjent.id})}" class="btn btn-primary btn-sm">Edytuj</a>
+                <a th:href="@{/pacjenci/usun/{id}(id=${pacjent.id})}" class="btn btn-danger btn-sm">Usuń</a>
+                <a th:href="@{/wyniki/pokaz/{id}(id=${pacjent.id})}" class="btn btn-info btn-sm">Wyniki</a>
+                <a th:href="@{/wyniki/dodaj/{id}(id=${pacjent.id})}" class="btn btn-success btn-sm">Dodaj Wyniki</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/pacjenci/dodaj" class="btn btn-success">Dodaj Pacjenta</a>
+
+    <a href="/home" class="btn btn-secondary mt-3">Powrót do Strony Głównej</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wynik Diagnozy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Wynik Diagnozy</h1>
+
+    <div th:if="${pasujaceChoroby.isEmpty()}">
+        <p class="text-center text-danger">Brak pasującej choroby</p>
+    </div>
+
+    <div th:if="${!pasujaceChoroby.isEmpty()}">
+        <h2>Możliwe diagnozy:</h2>
+        <ul>
+            <li th:each="choroba : ${pasujaceChoroby}" th:text="${choroba.nazwa}"></li>
+        </ul>
+    </div>
+
+    <a th:href="@{/pacjenci/lista}" class="btn btn-secondary">Powrót do listy pacjentów</a>
+</div>
+</body>
+</html>

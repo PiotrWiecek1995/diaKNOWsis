@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wybierz Wyniki do Diagnozy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Wybierz Wyniki do Diagnozy dla Pacjenta</h1>
+
+    <form th:action="@{/diagnosis/wyniki}" method="post">
+
+        <input type="hidden" th:value="${pacjentId}" name="pacjentId" />
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Wybierz</th>
+                <th>Morfologia</th>
+                <th>Leukocyty</th>
+                <th>Erytrocyty</th>
+                <th>Hemoglobina</th>
+                <th>Hematokryt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="wyniki : ${wynikiList}">
+                <td>
+
+                    <input type="radio" th:value="${wyniki.id}" name="wynikId" required/>
+                </td>
+                <td th:text="${wyniki.morfologia}"></td>
+                <td th:text="${wyniki.leukocyty}"></td>
+                <td th:text="${wyniki.erytrocyty}"></td>
+                <td th:text="${wyniki.hemoglobina}"></td>
+                <td th:text="${wyniki.hematokryt}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <button type="submit" class="btn btn-primary">Wybierz do Diagnozy</button>
+    </form>
+
+
+    <a th:href="@{/pacjenci/lista}" class="btn btn-secondary">Powrót do listy pacjentów</a>
+</div>
+</body>
+</html>

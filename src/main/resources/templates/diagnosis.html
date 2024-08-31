@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnoza Pacjenta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Diagnoza Pacjenta</h1>
+
+    <div th:if="${najbardziejPrawdopodobnaChoroba != null}">
+        <h2>Najbardziej prawdopodobna choroba: <span th:text="${najbardziejPrawdopodobnaChoroba}"></span></h2>
+    </div>
+    <div th:if="${najbardziejPrawdopodobnaChoroba == null}">
+        <h2>Żadna choroba nie pasuje do wyników pacjenta.</h2>
+    </div>
+
+
+    <ul>
+        <li th:each="choroba : ${dopasowaneChoroby}">
+            <span th:text="${choroba.nazwa}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DiaKNOWsis - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .app-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #4a90e2;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #357ab8;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .logout-message {
+            color: green;
+            margin-top: 10px;
+        }
+        .register-link {
+            margin-top: 20px;
+            display: block;
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1 class="app-title">DiaKNOWsis</h1>
+    <form th:action="@{/users/login}" method="post">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="username" required/>
+        </div>
+        <div class="form-group">
+            <label for="haslo">Password:</label>
+            <input type="password" id="haslo" name="password" required/>
+        </div>
+        <button type="submit">Login</button>
+
+        <div th:if="${error}" class="error-message">
+            Invalid username or password.
+        </div>
+        <div th:if="${param.logout}" class="logout-message">
+            You have been logged out.
+        </div>
+    </form>
+
+
+    <a th:href="@{/users/register}" class="register-link">Nie masz konta? Zarejestruj się</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj Wyniki</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Dodaj Wyniki</h1>
+    <form th:action="@{/wyniki/dodaj/{pacjentId}(pacjentId=${pacjent.id})}" th:object="${wyniki}" method="post">
+        <div class="form-group">
+            <label for="morfologia">Morfologia:</label>
+            <input type="text" id="morfologia" th:field="*{morfologia}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="leukocyty">Leukocyty:</label>
+            <input type="text" id="leukocyty" th:field="*{leukocyty}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="erytrocyty">Erytrocyty:</label>
+            <input type="text" id="erytrocyty" th:field="*{erytrocyty}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="hemoglobina">Hemoglobina:</label>
+            <input type="text" id="hemoglobina" th:field="*{hemoglobina}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="hematokryt">Hematokryt:</label>
+            <input type="text" id="hematokryt" th:field="*{hematokryt}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Dodaj Wyniki</button>
+        <a th:href="@{/pacjenci/lista}" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>
+</body>
+</html>

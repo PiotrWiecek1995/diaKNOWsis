@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout - DiaKNOWsis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+        }
+
+        .header-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-logout {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="header-title">DiaKNOWsis</h1>
+    <h2 class="text-center">Logout</h2>
+    <form th:action="@{/users/logout}" method="post">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="haslo">Password:</label>
+            <input type="password" id="haslo" name="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-logout">Logout</button>
+        </div>
+
+        <div th:if="${error}" class="message">
+            Invalid username or password.
+        </div>
+        <div th:if="${param.logout}" class="message text-success">
+            You have been logged out.
+        </div>
+    </form>
+</div>
+</body>
+</html>
