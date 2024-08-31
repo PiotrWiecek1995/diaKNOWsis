@@ -63,15 +63,15 @@ public class UserController {
 
 
 
-    // Dodana metoda do obsługi strony "Dane użytkownika"
+
     @GetMapping("/details")
     public String userDetails(@AuthenticationPrincipal UserDetails currentUser, Model model) {
         User user = userService.findByEmail(currentUser.getUsername());
         if (user != null) {
             model.addAttribute("user", user);
         } else {
-            return "redirect:/error"; // Lub inna strona błędu
+            return "redirect:/error";
         }
-        return "details"; // nazwa widoku, która musi odpowiadać nazwie pliku HTML
+        return "details";
     }
 }
